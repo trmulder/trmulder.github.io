@@ -62,51 +62,6 @@ function setupDarkMode() {
   btnM.addEventListener('click', update);
 }
 
-function setupScrollSpy() {
-  const sections = Array.from(document.querySelectorAll('section[id]')).filter(section => section.id !== 'home');
-  const nav = document.querySelector('.nav');
-  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-  const mobileLinks = document.querySelectorAll('.mobile-link[href^="#"]');
-  const linkMap = new Map();
-
-  const registerLink = link => {
-    const targetId = link.getAttribute('href').slice(1);
-    if (!targetId) return;
-    if (!linkMap.has(targetId)) linkMap.set(targetId, []);
-    linkMap.get(targetId).push(link);
-  };
-
-  navLinks.forEach(registerLink);
-  mobileLinks.forEach(registerLink);
-
-  const setActive = id => {
-    linkMap.forEach((links, key) => {
-      links.forEach(link => link.classList.toggle('active', key === id));
-    });
-  };
-
-  const updateActiveLink = () => {
-    const navOffset = (nav?.offsetHeight || 0) + 16;
-    const scrollPosition = window.scrollY + navOffset;
-    let activeId = null;
-
-    for (const section of sections) {
-      const top = section.offsetTop;
-      const bottom = top + section.offsetHeight;
-      if (scrollPosition >= top && scrollPosition < bottom) {
-        activeId = section.id;
-        break;
-      }
-    }
-
-    setActive(activeId);
-  };
-
-  window.addEventListener('scroll', updateActiveLink, { passive: true });
-  window.addEventListener('load', updateActiveLink);
-  updateActiveLink();
-}
-
 function downloadBibTeX(text, title) {
   try {
     const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
@@ -164,7 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
   personalize();
   setupMenu();
   setupDarkMode();
-  setupScrollSpy();
   initIcons();
   loadRepos();
 });
