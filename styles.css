@@ -56,6 +56,7 @@ img{max-width:100%;display:block}
 .icon-row{display:flex;gap:.5rem;margin-left:.25rem}
 .portrait{border:1px solid rgba(0,0,0,.06);border-radius:24px;background:linear-gradient(to bottom,#fff,#f6f7fb);box-shadow:0 10px 30px rgba(2,12,27,.08);overflow:hidden;aspect-ratio:4/5;max-width:420px;margin:0 auto}
 .portrait-inner{height:100%;display:grid;place-items:center;color:#6b7280;font-size:.9rem}
+.portrait-img{width:100%;height:100%;object-fit:cover;display:block}
 
 /* Sections */
 .section{padding:3rem 0}
