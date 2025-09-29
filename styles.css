@@ -115,4 +115,6 @@ img{max-width:100%;display:block}
 .dark .section.alt{background:#0d131a;border-color:rgba(255,255,255,.12)}
 .dark .card,.dark .list-item,.dark .pub,.dark .contact{background:#0f1318;border-color:rgba(255,255,255,.12)}
 .dark .meta,.dark .muted{color:#aab3c2}
+.dark .lede,.dark .body{color:#e7eaf0}
+.dark .body strong{color:#ffffff}
 .dark .footer{background:#0b0f14;border-color:rgba(255,255,255,.12)}
