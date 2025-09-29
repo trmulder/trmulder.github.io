@@ -5,7 +5,7 @@ const SITE = {
   email: 'twan.mulder9@icloud.com',
   github: 'trmulder',
   linkedin: 'trmulder',
-  cv: 'cv-placeholder.pdf',
+  cv: 'CV - Twan Mulder.pdf',
 };
 // --------------------------------------------------
 
