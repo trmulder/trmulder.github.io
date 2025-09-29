@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Twan Mulder — Quantitative Researcher in Finance</title>
+  <meta name="description" content="Professional site for a quantitative finance researcher: research, publications, code, and contact." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.ico" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="nav">
+    <div class="wrap">
+      <a href="#home" class="brand">
+        <span class="brand-badge"></span>
+        <span class="brand-name" id="brandName">Twan Mulder</span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#writing">Writing</a>
+        <a href="#publications">Publications</a>
+        <a href="#code">Research Code</a>
+        <a href="#contact">Contact</a>
+        <span class="divider"></span>
+        <button class="icon-btn" id="themeBtn" aria-label="Toggle dark mode">
+          <i data-lucide="moon"></i>
+        </button>
+        <a id="contactBtn" class="btn btn-dark" href="mailto:twan.mulder9@icloud.com">
+          <i data-lucide="mail"></i> Contact
+        </a>
+      </nav>
+      <button class="icon-btn md-hide" id="menuBtn" aria-label="Open menu">
+        <i data-lucide="menu"></i>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-inner">
+        <a href="#about" class="mobile-link">About</a>
+        <a href="#experience" class="mobile-link">Experience</a>
+        <a href="#projects" class="mobile-link">Projects</a>
+        <a href="#writing" class="mobile-link">Writing</a>
+        <a href="#publications" class="mobile-link">Publications</a>
+        <a href="#code" class="mobile-link">Research Code</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+        <div class="hr"></div>
+        <div class="mobile-actions">
+          <button class="icon-btn" id="themeBtnMobile" aria-label="Toggle dark mode">
+            <i data-lucide="moon"></i>
+          </button>
+          <a id="contactBtnMobile" class="btn btn-dark" href="mailto:twan.mulder9@icloud.com">
+            <i data-lucide="mail"></i> Contact
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-bg"></div>
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow blue">QUANT FINANCE • ASSET PRICING • ECONOMETRICS</p>
+        <h1 class="display" id="heroName">Twan Mulder</h1>
+        <p class="lede">
+          I’m a quantitative researcher in finance focusing on empirical asset pricing, econometrics, and machine learning.
+          I build reproducible research pipelines (WRDS/CRSP/Compustat), design robust factor tests, and write about
+          identification and out-of-sample validation.
+        </p>
+        <div class="cta-row">
+          <a href="#projects" class="btn btn-dark">View Work <i data-lucide="arrow-right"></i></a>
+          <a id="cvLink" href="cv-placeholder.pdf" class="btn btn-outline"><i data-lucide="file-text"></i> Download CV</a>
+          <div class="icon-row">
+            <a id="ghLink" class="icon-btn bordered" href="https://github.com/trmulder" target="_blank" rel="noreferrer"><i data-lucide="github"></i></a>
+            <a id="liLink" class="icon-btn bordered" href="https://linkedin.com/in/trmulder" target="_blank" rel="noreferrer"><i data-lucide="linkedin"></i></a>
+            <a id="mailLink" class="icon-btn bordered" href="mailto:twan.mulder9@icloud.com"><i data-lucide="mail"></i></a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="portrait">
+          <div class="portrait-inner">Your Portrait Here</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="wrap">
+      <h2 class="h2">About</h2>
+      <p class="body">
+        I’m a <strong>quantitative researcher in finance</strong> working at the intersection of asset pricing and statistical learning.
+        My work centers on factor modeling, grouped heterogeneity, and robust inference. I care about clean data engineering,
+        transparent research design, and faithful economic interpretation. Current projects include replication and extension
+        of grouped-heterogeneity sparse models and building a fully-audited factor pipeline from CRSP/Compustat with quarterly characteristics.
+      </p>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section">
+    <div class="wrap">
+      <h2 class="h2">Experience</h2>
+      <ol class="timeline">
+        <li>
+          <div class="dot"></div>
+          <div class="timeline-head">
+            <h3 class="h3">Quantitative Researcher · <a href="#">Buy-Side Asset Manager</a></h3>
+            <span class="meta">2023 — Present</span>
+          </div>
+          <ul class="ul">
+            <li>Research lead for cross-sectional expected return models (monthly horizon).</li>
+            <li>Productionized factor library (200+ signals) with rolling Compustat/CRSP merges and point-in-time auditing.</li>
+            <li>Designed robust backtests with walk-forward validation, microcap filters, and transaction cost modeling.</li>
+          </ul>
+        </li>
+        <li>
+          <div class="dot"></div>
+          <div class="timeline-head">
+            <h3 class="h3">Research Assistant (Asset Pricing) · <a href="#">University / Research Lab</a></h3>
+            <span class="meta">2021 — 2023</span>
+          </div>
+          <ul class="ul">
+            <li>Implemented grouped-heterogeneity sparse modeling for anomaly clustering and pricing kernel estimation.</li>
+            <li>Curated WRDS data (CRSP, Compustat, IBES) with reproducible ETL and versioned code.</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <div class="wrap">
+      <h2 class="h2">Projects</h2>
+      <div class="cards">
+        <article class="card">
+          <h3 class="h3">Project One</h3>
+          <p class="muted">Short description of the problem, your approach, and the outcome. Include metrics if possible.</p>
+          <a href="#" class="link blue">View <i data-lucide="arrow-right"></i></a>
+        </article>
+        <article class="card">
+          <h3 class="h3">Project Two</h3>
+          <p class="muted">What you built, who it was for, and why it mattered. Add a case study link.</p>
+          <a href="#" class="link blue">View <i data-lucide="arrow-right"></i></a>
+        </article>
+        <article class="card">
+          <h3 class="h3">Open‑source Library</h3>
+          <p class="muted">Explain the purpose and adoption. Mention stars/downloads if relevant.</p>
+          <a href="#" class="link blue">View <i data-lucide="arrow-right"></i></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- WRITING -->
+  <section id="writing" class="section alt">
+    <div class="wrap">
+      <h2 class="h2">Writing</h2>
+      <ul class="list-list">
+        <li class="list-item">
+          <div>
+            <a href="#" class="h3 link">Grouped Heterogeneity and Factor Discovery: Practical Notes</a>
+            <p class="meta">Mar 8, 2025 · 9 min read</p>
+          </div>
+          <i data-lucide="external-link"></i>
+        </li>
+        <li class="list-item">
+          <div>
+            <a href="#" class="h3 link">Backtesting Pitfalls in Cross-Sectional Asset Pricing</a>
+            <p class="meta">Nov 2, 2024 · 7 min read</p>
+          </div>
+          <i data-lucide="external-link"></i>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications" class="section">
+    <div class="wrap">
+      <h2 class="h2">Publications / Working Papers</h2>
+      <div class="pub">
+        <div>
+          <h3 class="h3">Sparse Modeling Under Grouped Heterogeneity in Asset Pricing</h3>
+          <p class="muted">Twan Mulder, Coauthor A, Coauthor B</p>
+          <p class="meta">Working Paper · 2025</p>
+        </div>
+        <div class="pub-actions">
+          <a href="#" class="btn btn-outline"><i data-lucide="file-text"></i> PDF</a>
+          <a href="#" class="btn btn-outline"><i data-lucide="external-link"></i> SSRN</a>
+          <a href="#" class="btn btn-outline"><i data-lucide="external-link"></i> arXiv</a>
+          <button class="btn btn-dark" onclick="downloadBibTeX(`@workingpaper{yourname2025grouped,\n  title={Sparse Modeling Under Grouped Heterogeneity in Asset Pricing},\n  author={Twan Mulder and Coauthor A and Coauthor B},\n  year={2025},\n  note={Working paper},\n  url={https://ssrn.com/abstract=XXXXXXX}\n}`, 'Sparse Modeling Under Grouped Heterogeneity in Asset Pricing')"><i data-lucide="file-text"></i> BibTeX</button>
+        </div>
+      </div>
+
+      <div class="pub">
+        <div>
+          <h3 class="h3">Factor Stability and Out-of-Sample Validation</h3>
+          <p class="muted">Twan Mulder</p>
+          <p class="meta">Manuscript · 2024</p>
+        </div>
+        <div class="pub-actions">
+          <a href="#" class="btn btn-outline"><i data-lucide="external-link"></i> SSRN</a>
+          <a href="#" class="btn btn-outline"><i data-lucide="external-link"></i> arXiv</a>
+          <button class="btn btn-dark" onclick="downloadBibTeX(`@misc{yourname2024stability,\n  title={Factor Stability and Out-of-Sample Validation},\n  author={Twan Mulder},\n  year={2024},\n  howpublished={Manuscript},\n  url={https://ssrn.com/abstract=YYYYYYY}\n}`, 'Factor Stability and Out-of-Sample Validation')"><i data-lucide="file-text"></i> BibTeX</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CODE (GitHub) -->
+  <section id="code" class="section">
+    <div class="wrap">
+      <h2 class="h2">Research Code (auto from GitHub)</h2>
+      <p class="small muted">Set your GitHub handle in <code>script.js</code> (GITHUB_USER). Public repos will appear below, sorted by stars and recency.</p>
+      <div id="repos" class="cards"></div>
+      <p id="repoStatus" class="small muted"></p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section alt">
+    <div class="wrap">
+      <h2 class="h2">Contact</h2>
+      <div class="contact">
+        <p class="body">I’m open to research collaborations, data partnerships, and industry talks. The fastest way to reach me is by email.</p>
+        <div class="cta-row">
+          <a id="emailMe" href="mailto:twan.mulder9@icloud.com" class="btn btn-dark"><i data-lucide="mail"></i> Email Me</a>
+          <a id="connectLI" href="https://linkedin.com/in/trmulder" target="_blank" rel="noreferrer" class="btn btn-outline"><i data-lucide="linkedin"></i> Connect</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <p class="small muted">© <span id="year"></span> <span id="footerName">Twan Mulder</span>. All rights reserved.</p>
+      <div class="icon-row">
+        <a href="https://github.com/trmulder" target="_blank" rel="noreferrer" class="icon-btn bordered"><i data-lucide="github"></i></a>
+        <a href="https://linkedin.com/in/trmulder" target="_blank" rel="noreferrer" class="icon-btn bordered"><i data-lucide="linkedin"></i></a>
+        <a href="cv-placeholder.pdf" class="icon-btn bordered"><i data-lucide="file-text"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <!-- Main JS -->
+  <script src="script.js"></script>
+</body>
+</html>
