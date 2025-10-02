@@ -7,6 +7,23 @@ const SITE = {
   linkedin: 'trmulder',
   cv: 'CV - Twan Mulder.pdf',
 };
+const PROJECTS = {
+  'project-one': {
+    title: 'Project One',
+    description: 'A concise overview of the project. Summarize the problem you tackled, your methodology, and the measurable impact for stakeholders.',
+    pdf: SITE.cv,
+  },
+  'project-two': {
+    title: 'Project Two',
+    description: 'Detail the business or research challenge, highlight the core techniques you used, and mention any performance improvements or adoption metrics.',
+    pdf: SITE.cv,
+  },
+  'open-source-library': {
+    title: 'Open-source Library',
+    description: 'Explain the motivation behind the library, the ecosystem it supports, and how other developers use it today.',
+    pdf: SITE.cv,
+  },
+};
 // --------------------------------------------------
 
 function setYear() {
@@ -114,11 +131,74 @@ async function loadRepos() {
 
 function initIcons() { lucide.createIcons(); }
 
+function setupProjectModals() {
+  const modal = document.getElementById('projectModal');
+  if (!modal) return;
+  const titleEl = document.getElementById('projectModalTitle');
+  const descriptionEl = document.getElementById('projectModalDescription');
+  const pdfEl = document.getElementById('projectModalPdf');
+  const closeBtn = modal.querySelector('[data-close-modal]');
+  const triggers = document.querySelectorAll('.project-view');
+  let lastFocus = null;
+
+  const closeModal = () => {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+    if (lastFocus) {
+      lastFocus.focus({ preventScroll: true });
+      lastFocus = null;
+    }
+  };
+
+  const openModal = id => {
+    const project = PROJECTS[id];
+    if (!project) return;
+    titleEl.textContent = project.title;
+    descriptionEl.textContent = project.description;
+    const hasPdf = Boolean(project.pdf);
+    if (hasPdf) {
+      pdfEl.href = project.pdf;
+      pdfEl.removeAttribute('aria-disabled');
+      pdfEl.classList.remove('is-hidden');
+      pdfEl.setAttribute('aria-label', `Open ${project.title} PDF`);
+    } else {
+      pdfEl.removeAttribute('href');
+      pdfEl.setAttribute('aria-disabled', 'true');
+      pdfEl.classList.add('is-hidden');
+    }
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    lastFocus = document.activeElement;
+    (hasPdf ? pdfEl : closeBtn)?.focus({ preventScroll: true });
+  };
+
+  triggers.forEach(btn => {
+    btn.addEventListener('click', () => openModal(btn.dataset.projectId));
+  });
+
+  closeBtn?.addEventListener('click', closeModal);
+
+  modal.addEventListener('click', event => {
+    if (event.target === modal) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && modal.classList.contains('open')) {
+      closeModal();
+    }
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   setYear();
   personalize();
   setupMenu();
   setupDarkMode();
   initIcons();
+  setupProjectModals();
   loadRepos();
 });
