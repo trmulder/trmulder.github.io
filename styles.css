@@ -86,19 +86,6 @@ img{max-width:100%;display:block}
 @media (min-width: 1024px){.cards{grid-template-columns:repeat(3,1fr)}}
 .card{border:1px solid rgba(0,0,0,.06);border-radius:16px;background:#fff;padding:1.1rem;box-shadow:0 6px 18px rgba(2,12,27,.05)}
 .card .link{display:inline-flex;align-items:center;gap:.35rem;font-weight:700}
-.card button.link{border:none;background:none;padding:0;font:inherit;color:inherit;cursor:pointer}
-.card button.link:focus-visible{outline:2px solid var(--primary);outline-offset:4px;border-radius:6px}
-
-/* Modal */
-.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:1.5rem;background:rgba(11,15,20,.55);z-index:60}
-.modal.open{display:flex}
-.modal-dialog{position:relative;width:100%;max-width:460px;background:#fff;border-radius:20px;box-shadow:0 18px 48px rgba(15,19,24,.15);padding:2.25rem 2rem 1.75rem;display:flex;flex-direction:column;gap:1rem}
-.modal-close{position:absolute;top:1rem;right:1rem}
-body.modal-open{overflow:hidden}
-.modal .is-hidden{display:none}
-
-.dark .modal{background:rgba(0,0,0,.65)}
-.dark .modal-dialog{background:#0f1318;border:1px solid rgba(255,255,255,.12);box-shadow:0 18px 48px rgba(0,0,0,.35)}
 
 /* Writing list */
 .list-list{display:flex;flex-direction:column;gap:.75rem}
