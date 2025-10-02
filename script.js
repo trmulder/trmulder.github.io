@@ -78,6 +78,42 @@ function downloadBibTeX(text, title) {
   }
 }
 
+let revealObserver;
+
+function ensureRevealObserver() {
+  if (revealObserver || !('IntersectionObserver' in window)) return revealObserver;
+  revealObserver = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -80px' });
+  return revealObserver;
+}
+
+function setupScrollReveal() {
+  const nodes = document.querySelectorAll('[data-reveal]');
+  if (!nodes.length) return;
+  if (!('IntersectionObserver' in window)) {
+    nodes.forEach(el => el.classList.add('is-visible'));
+    return;
+  }
+  const observer = ensureRevealObserver();
+  nodes.forEach(el => {
+    if (el.classList.contains('is-visible')) return;
+    const delay = el.dataset.revealDelay;
+    if (delay) {
+      const parsed = Number(delay);
+      if (!Number.isNaN(parsed)) {
+        el.style.setProperty('--reveal-delay', `${parsed}s`);
+      }
+    }
+    observer.observe(el);
+  });
+}
+
 // GitHub repos (sorted by stars, then updated)
 async function loadRepos() {
   const user = SITE.github;
@@ -93,8 +129,8 @@ async function loadRepos() {
       .filter(r => !r.fork)
       .sort((a,b) => (b.stargazers_count - a.stargazers_count) || (new Date(b.updated_at) - new Date(a.updated_at)))
       .slice(0, 12);
-    grid.innerHTML = repos.map(r => `
-      <a class="card" href="${r.html_url}" target="_blank" rel="noreferrer">
+    grid.innerHTML = repos.map((r, index) => `
+      <a class="card" data-reveal data-reveal-delay="${(index % 3) * 0.1}" href="${r.html_url}" target="_blank" rel="noreferrer">
         <div class="card-head">
           <h3 class="h3">${r.name}</h3>
         </div>
@@ -107,6 +143,7 @@ async function loadRepos() {
       </a>
     `).join('');
     status.textContent = repos.length ? '' : 'No repositories found.';
+    setupScrollReveal();
   } catch (e) {
     status.textContent = 'Failed to load GitHub repos: ' + e.message;
   }
@@ -121,4 +158,5 @@ document.addEventListener('DOMContentLoaded', () => {
   setupDarkMode();
   initIcons();
   loadRepos();
+  setupScrollReveal();
 });
