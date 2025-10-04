@@ -48,16 +48,20 @@ function setupDarkMode() {
   const btn = document.getElementById('themeBtn');
   const btnM = document.getElementById('themeBtnMobile');
   const root = document.documentElement;
-  const update = () => {
-    const isDark = root.classList.toggle('dark');
+  const setThemeIcons = isDark => {
     const icon = isDark ? 'sun' : 'moon';
     btn.innerHTML = `<i data-lucide="${icon}"></i>`;
     btnM.innerHTML = `<i data-lucide="${icon}"></i>`;
     lucide.createIcons();
+  };
+  const update = () => {
+    const isDark = root.classList.toggle('dark');
+    setThemeIcons(isDark);
     localStorage.setItem('prefers-dark', isDark ? '1' : '0');
   };
   const saved = localStorage.getItem('prefers-dark');
   if (saved === '1') root.classList.add('dark');
+  setThemeIcons(root.classList.contains('dark'));
   btn.addEventListener('click', update);
   btnM.addEventListener('click', update);
 }
