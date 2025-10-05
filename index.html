@@ -247,24 +247,67 @@
     <div class="wrap">
       <h2 class="h2">Projects</h2>
       <div class="cards">
-        <article class="card">
-          <h3 class="h3">Project One</h3>
-          <p class="muted">Short description of the problem, your approach, and the outcome. Include metrics if possible.</p>
-          <a href="#" class="link blue">View <i data-lucide="arrow-right"></i></a>
+        <article
+          class="card project-card"
+          data-title="Spectral Factor Model Toolkit"
+          data-description="Companion package that reproduces the experiments from my spectral factor model research, including the full data processing and model evaluation pipeline for corporate bonds."
+          data-pdf="sfcb.pdf"
+          data-code="https://github.com/trmulder/spectral-factor-model"
+        >
+          <h3 class="h3">Spectral Factor Model Toolkit</h3>
+          <p class="muted">Python utilities for replicating corporate bond predictability experiments from my working paper.</p>
+          <button type="button" class="btn btn-dark project-modal-btn">
+            Details <i data-lucide="arrow-right"></i>
+          </button>
         </article>
-        <article class="card">
-          <h3 class="h3">Project Two</h3>
-          <p class="muted">What you built, who it was for, and why it mattered. Add a case study link.</p>
-          <a href="#" class="link blue">View <i data-lucide="arrow-right"></i></a>
+        <article
+          class="card project-card"
+          data-title="Credit Risk Forecast Dashboard"
+          data-description="Interactive dashboard that aggregates firm-level credit indicators, macro factors, and model forecasts to highlight changing risk profiles across sectors."
+          data-pdf="CV - Twan Mulder.pdf"
+          data-code="https://github.com/trmulder/credit-risk-dashboard"
+        >
+          <h3 class="h3">Credit Risk Forecast Dashboard</h3>
+          <p class="muted">Live reporting environment combining macro data and firm fundamentals for portfolio monitoring.</p>
+          <button type="button" class="btn btn-dark project-modal-btn">
+            Details <i data-lucide="arrow-right"></i>
+          </button>
         </article>
-        <article class="card">
-          <h3 class="h3">Open‑source Library</h3>
-          <p class="muted">Explain the purpose and adoption. Mention stars/downloads if relevant.</p>
-          <a href="#" class="link blue">View <i data-lucide="arrow-right"></i></a>
+        <article
+          class="card project-card"
+          data-title="Fixed Income Alpha Lab"
+          data-description="Research playground for testing machine learning models on fixed income datasets with automated feature engineering and evaluation utilities."
+          data-pdf="sfcb.pdf"
+          data-code="https://github.com/trmulder/fixed-income-alpha-lab"
+        >
+          <h3 class="h3">Fixed Income Alpha Lab</h3>
+          <p class="muted">Modular experimentation suite for bond return forecasting with configurable pipelines.</p>
+          <button type="button" class="btn btn-dark project-modal-btn">
+            Details <i data-lucide="arrow-right"></i>
+          </button>
         </article>
       </div>
     </div>
   </section>
+
+  <div class="modal" id="projectModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle">
+      <button class="icon-btn modal-close" type="button" data-close-modal aria-label="Close project details">
+        <i data-lucide="x"></i>
+      </button>
+      <h3 class="h3" id="projectModalTitle" data-modal-title></h3>
+      <p class="body" data-modal-description></p>
+      <div class="modal-actions">
+        <a class="btn btn-dark" data-modal-pdf target="_blank" rel="noreferrer">
+          <i data-lucide="file-text"></i> PDF
+        </a>
+        <a class="btn btn-outline" data-modal-code target="_blank" rel="noreferrer">
+          <i data-lucide="github"></i> Code
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- CONTACT -->
   <section id="contact" class="section alt">
