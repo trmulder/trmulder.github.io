@@ -118,6 +118,69 @@ async function loadRepos() {
 
 function initIcons() { lucide.createIcons(); }
 
+function setupProjectModal() {
+  const cards = document.querySelectorAll('.project-card');
+  const modal = document.getElementById('projectModal');
+  if (!modal || !cards.length) return;
+
+  const modalTitle = modal.querySelector('[data-modal-title]');
+  const modalDescription = modal.querySelector('[data-modal-description]');
+  const pdfLink = modal.querySelector('[data-modal-pdf]');
+  const codeLink = modal.querySelector('[data-modal-code]');
+  const closeElements = modal.querySelectorAll('[data-close-modal]');
+
+  const closeModal = () => {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+  };
+
+  const openModal = card => {
+    if (!card) return;
+    const { title = '', description = '', pdf = '', code = '' } = card.dataset;
+    modalTitle.textContent = title;
+    modalDescription.textContent = description;
+
+    if (pdf) {
+      pdfLink.href = pdf;
+      pdfLink.style.display = 'inline-flex';
+    } else {
+      pdfLink.removeAttribute('href');
+      pdfLink.style.display = 'none';
+    }
+
+    if (code) {
+      codeLink.href = code;
+      codeLink.style.display = 'inline-flex';
+    } else {
+      codeLink.removeAttribute('href');
+      codeLink.style.display = 'none';
+    }
+
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    lucide.createIcons();
+  };
+
+  cards.forEach(card => {
+    const trigger = card.querySelector('.project-modal-btn');
+    if (trigger) {
+      trigger.addEventListener('click', () => openModal(card));
+    }
+  });
+
+  closeElements.forEach(el => {
+    el.addEventListener('click', closeModal);
+  });
+
+  document.addEventListener('keydown', evt => {
+    if (evt.key === 'Escape' && modal.classList.contains('open')) {
+      closeModal();
+    }
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   setYear();
   personalize();
@@ -125,4 +188,5 @@ document.addEventListener('DOMContentLoaded', () => {
   setupDarkMode();
   initIcons();
   loadRepos();
+  setupProjectModal();
 });
