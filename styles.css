@@ -34,6 +34,8 @@ img{max-width:100%;display:block}
 .btn-light:hover{background:#f1f5f9}
 #contactBtn,#contactBtn:hover{color:#000}
 .dark #contactBtn,.dark #contactBtn:hover{color:#fff}
+.project-modal-btn{background:#fff;color:#111827}
+.project-modal-btn:hover{background:#f1f5f9}
 .nav-links .btn:hover{color:inherit}
 .btn-dark{background:#111827;color:#fff;border-color:transparent}
 .btn-dark:hover{background:#000}
@@ -123,6 +125,8 @@ body.modal-open{overflow:hidden}
 .dark .btn-light:hover{background:#131922}
 .dark .btn-outline:hover{background:#121821}
 .dark .btn-dark{background:#e7eaf0;color:#0c1117}
+.dark .project-modal-btn{background:#0f1318;color:#e7eaf0;border-color:rgba(255,255,255,.15)}
+.dark .project-modal-btn:hover{background:#131922}
 .dark .mobile-menu{background:#0f1318;border-bottom:1px solid rgba(255,255,255,.12)}
 .dark .mobile-link:hover{background:#111721}
 .dark .hero{border-color:rgba(255,255,255,.12)}
