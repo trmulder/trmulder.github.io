@@ -26,10 +26,10 @@ img{max-width:100%;display:block}
 .nav-links a:hover{color:#0284c7}
 .md-hide{display:inline-flex}
 @media (min-width: 768px){.nav-links{display:flex}.md-hide{display:none}}
-.icon-btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(0,0,0,.06);padding:.5rem;border-radius:12px;background:#fff}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(0,0,0,.06);padding:.5rem;border-radius:12px;background:#fff;font-size:1rem}
 .icon-btn.bordered{border:1px solid rgba(0,0,0,.08);background:#fff}
 .icon-btn:hover{background:#f8fafc}
-.btn{display:inline-flex;align-items:center;gap:.5rem;border-radius:12px;padding:.65rem .95rem;font-weight:700;border:1px solid var(--border);background:#fff;color:#111827;transition:background .2s ease,color .2s ease,border-color .2s ease}
+.btn{display:inline-flex;align-items:center;gap:.5rem;border-radius:12px;padding:.65rem .95rem;font-weight:700;font-size:1rem;border:1px solid var(--border);background:#fff;color:#111827;transition:background .2s ease,color .2s ease,border-color .2s ease}
 .btn-light{background:#fff;color:#111827}
 .btn-light:hover{background:#f1f5f9}
 #contactBtn,#contactBtn:hover{color:#000}
