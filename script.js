@@ -82,6 +82,7 @@ function downloadBibTeX(text, title) {
   }
 }
 
+/*
 // GitHub repos (sorted by stars, then updated)
 async function loadRepos() {
   const user = SITE.github;
@@ -115,9 +116,11 @@ async function loadRepos() {
     status.textContent = 'Failed to load GitHub repos: ' + e.message;
   }
 }
+*/
 
 function initIcons() { lucide.createIcons(); }
 
+/*
 function setupProjectModal() {
   const cards = document.querySelectorAll('.project-card');
   const modal = document.getElementById('projectModal');
@@ -180,6 +183,7 @@ function setupProjectModal() {
     }
   });
 }
+*/
 
 document.addEventListener('DOMContentLoaded', () => {
   setYear();
@@ -187,6 +191,6 @@ document.addEventListener('DOMContentLoaded', () => {
   setupMenu();
   setupDarkMode();
   initIcons();
-  loadRepos();
-  setupProjectModal();
+  // loadRepos();
+  // setupProjectModal();
 });
